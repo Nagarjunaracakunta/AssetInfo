@@ -36,7 +36,7 @@
 
             <div class="col-md-3" style="margin-top:15%">
                 
-                <img class="img-fluid" src="/images/signup-image.jpg" alt="Signin"> 
+                <img class="img-fluid" src="/AssetInfo/images/signup-image.jpg" alt="Signin"> 
             </div>
 
             <div class="col-md-9">
