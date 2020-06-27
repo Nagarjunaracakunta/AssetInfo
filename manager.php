@@ -9,6 +9,34 @@
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+.card.light-version .file-field input[type=text] {
+    border-bottom: 1px solid #fff; }
+    .card.light-version .file-field input[type=text]::-webkit-input-placeholder {
+    color: #fff;
+    font-weight: 300; }
+    .card.light-version .file-field input[type=text]::-moz-placeholder {
+    color: #fff;
+    font-weight: 300; }
+    .card.light-version .file-field input[type=text]:-ms-input-placeholder {
+    color: #fff;
+    font-weight: 300; }
+    .card.light-version .file-field input[type=text]::placeholder {
+    color: #fff;
+    font-weight: 300; }
+    .card.light-version .file-field input[type=text]:focus:not([readonly]) {
+    -webkit-box-shadow: 0 1px 0 0 #fff;
+    box-shadow: 0 1px 0 0 #fff; }
+    .card.light-version .file-field input[type=text].valid {
+    border-bottom: 1px solid #00c851;
+    -webkit-box-shadow: 0 1px 0 0 #00c851;
+    box-shadow: 0 1px 0 0 #00c851; }
+    .card.light-version .file-field input[type=text]:focus.valid {
+    border-bottom: 1px solid #00c851;
+    -webkit-box-shadow: 0 1px 0 0 #00c851;
+    box-shadow: 0 1px 0 0 #00c851; }
+    
+</style>
 
 <!-- Popper JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -18,7 +46,6 @@
 <!-- Main Javascript-->
 <script src="/Javascript/script.js"></script>
     <title>Asset</title>
-
 </head>
 <body>
     <div class="container">
@@ -146,7 +173,42 @@
             <h2>View</h2>
         </div>
         <div class="row" id="collapseExample3">
-            <h2>Employee Data</h2>
+                <!--Card-->
+                <div class="row">
+                    <div class="input-group m-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Update Employee Data</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                            aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="input-group m-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Delete Employee Data</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                            aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="input-group m-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Add Employee Data</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                            aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                    </div>
+                    <!--/.Card-->
+            </div>
+
+
         </div>
         <div class="row" id="collapseExample4">
             <h2>Export Data</h2>
