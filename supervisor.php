@@ -27,10 +27,10 @@
           </div>
         <div class="row">
             
-            <input type="button" class="btn btn-success show-btn" value="form-fill">
-            <input type="button" class="btn btn-success hide-btn" value="view" aria-expanded="false">
-            <input type="button" class="btn btn-success show-btn" value="Manager">
-            <input type="button" class="btn btn-success hide-btn" value="Export Data" aria-expanded="false">
+        <input type="button" class="btn btn-success form-btn" value="Form-Fill">
+            <input type="button" class="btn btn-success view-btn" value="View" aria-expanded="false">
+            <input type="button" class="btn btn-success employee-btn" value="Manager Data">
+            <input type="button" class="btn btn-success export-btn" value="Export Data" aria-expanded="false">
         </div>
         <div class="row" id="collapseExample">
 
@@ -150,15 +150,32 @@
 <script>
 
 
-
 $(document).ready(function(){
-    $(".show-btn").click(function(){
+    $(".form-btn").click(function(){
         $("#collapseExample").collapse('show');
         $("#collapseExample2").collapse('hide');
+        $("#collapseExample2").collapse('hide');
+        $("#collapseExample2").collapse('hide');
     });
-    $(".hide-btn").click(function(){
+    $(".view-btn").click(function(){
         $("#collapseExample2").collapse('show');
         $("#collapseExample").collapse('hide');
+        $("#collapseExample3").collapse('hide');
+        $("#collapseExample4").collapse('hide');
+    });
+
+    $(".employee-btn").click(function(){
+        $("#collapseExample2").collapse('hide');
+        $("#collapseExample").collapse('hide');
+        $("#collapseExample3").collapse('show');
+        $("#collapseExample4").collapse('hide');
+    });
+
+    $(".export-btn").click(function(){
+        $("#collapseExample2").collapse('hide');
+        $("#collapseExample").collapse('hide');
+        $("#collapseExample3").collapse('hide');
+        $("#collapseExample4").collapse('show');
     });
 });
 </script>
