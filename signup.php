@@ -81,23 +81,5 @@
     
     form.addClass('was-validated');
 });
-$('#emp_id').on('change',function(e){
-	  alert('hai');
-      var name=document.getElementById('emp_id').value;
-      var ajax = new XMLHttpRequest();
-      ajax.open("GET", "businesslogic.php?EmployeeId="+name, true);
-      ajax.send();
-      ajax.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-              var data = JSON.parse(this.responseText);
-              console.log(data);
-              document.getElementById('emp_name').value=data[0].emp_name;
-              document.getElementById('emp_role').value=data[0].emp_role;
-              document.getElementById('manager').value=data[0].emp_manager;
-              document.getElementById('emp_won').value=data[0].emp_won;
-              
-          }
-      };
-     });
 </script>
 </html>

@@ -217,7 +217,21 @@
                         $_SESSION['emp_won']=$result['emp_won'];
                         $_SESSION['emp_manager']=$result['emp_manager'];
                     }
-                    header('location: teammember.php');
+                    if ($_SESSION['emp_role']=="Manager")
+                    {               
+                        header('location: manager.php');
+                    }
+                    else if ($_SESSION['emp_role']=="Developer")
+                    {
+                        
+                        header('location: teammember.php');
+                    }
+                    else
+                    {
+                        header('location: supervisor.php');
+
+                    }
+                    
                 }
                 else
                 {
@@ -225,11 +239,11 @@
                 }
                     
             }
-                else
-                {
-                    
-                    array_push($errors, "(  Invalid username and password  )");
-                }
+            else
+            {
+                
+                array_push($errors, "(  Invalid username and password  )");
+            }
         }
 
         if (isset($_POST['fillform'])) 

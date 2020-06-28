@@ -36,7 +36,7 @@ session_start();
 <body>
     <div class="container">
         <div class="page-header bg-success">
-            <h1 class="text-white text-center p-2">Nagarjuna Rachakunta</h1>      
+            <h1 class="text-white text-center p-2"><?php echo $_SESSION['emp_name']; ?></h1>      
           </div>
         <div class="row">
             
@@ -177,10 +177,29 @@ session_start();
             </tbody>
             </table>
         </div>
-        <div class="row" id="collapseExample3">
+        <div class="row m-5" id="collapseExample3">
             <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
-                   <input type="file" name="uploaddata" />
-                   <input type="submit"/>
+                   <div class="form row m-5">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Update Employee List</label>
+                            
+                        </div>        
+                    </div>
+                    <div class="form row m-5 ">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Delete Employee List</label>
+                            
+                        </div>        
+                    </div>
+                    <div class="form row m-5 ">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Add Employee List</label>
+                            
+                        </div>        
+                    </div>
              </form>
             </div>
 

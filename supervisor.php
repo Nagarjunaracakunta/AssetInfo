@@ -36,7 +36,7 @@ session_start();
 <body>
     <div class="container">
         <div class="page-header bg-success">
-            <h1 class="text-white text-center p-2">Nagarjuna Rachakunta</h1>      
+            <h1 class="text-white text-center p-2"><?php echo $_SESSION['emp_name']; ?></h1>      
           </div>
         <div class="row">
             
