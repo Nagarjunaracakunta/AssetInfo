@@ -36,23 +36,28 @@ session_start();
 <body>
     <div class="container">
         <div class="page-header bg-success">
-            <h1 class="text-white text-center p-2"><?php echo $_SESSION['emp_name']; ?></h1>      
+            <h1 class="text-white text-center p-3"><?php echo $_SESSION['emp_name']; ?></h1>      
           </div>
-        <div class="row">
+        <div class="row offset-md-3">
             
-        <input type="button" class="btn btn-success form-btn" value="Form-Fill">
-            <input type="button" class="btn btn-success view-btn" value="View" aria-expanded="false">
-            <input type="button" class="btn btn-success employee-btn" value="Manager Data">
-            <input type="button" class="btn btn-success export-btn" value="Export Data" aria-expanded="false">
+            <div class="d-flex p-3 bg-white text-white">
+                 <input type="button" class="btn btn-outline-success mx-3 p-3 form-btn" value="Form-Fill">
+                <input type="button" class="btn btn-outline-success mx-3 p-3 view-btn" value="View" aria-expanded="false">
+                <input type="button" class="btn btn-outline-success mx-3 p-3 employee-btn" value="Manager Data">
+                <input type="button" class="btn btn-outline-success mx-3 p-3 export-btn" value="Export Data" aria-expanded="false">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                            <input  class="btn-outline-success mx-3 p-3" type="submit" name="logout" value="logout"/>
+                </form>
+            </div>
         </div>
-        <div class="row" id="collapseExample">
+        <div class="row">
 
             <div class="col-md-3" style="margin-top:15%">
                 
                 <img class="img-fluid" src="/AssetInfo/images/signup-image.jpg" alt="Signin"> 
             </div>
 
-            <div class="col-md-9">
+            <div  class="col-md-9" style="margin-bottom:15%" id="collapseExample">
                 <form action="businesslogic.php" class="form" role="form" autocomplete="off" id="Formfill" novalidate="" method="POST">
                     <span class="anchor" id="formComplex"></span>
                     <hr class="my-5">
@@ -120,79 +125,94 @@ session_start();
                     </div>
                 </form>
             </div>
-        </div>
-        <div class="row" id="collapseExample2">
-            <table class="table">
-            <thead>
-                <tr>
-                <th scope="row">Employee Role</th>
-                <td>WWWWWWWWW</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <th scope="row">Employee Won</th>
-                <td>Mark</td>
-                </tr>
-                <tr>
-                <th scope="row">Manager</th>
-                <td>Jacob</td>
-                </tr>
-                <tr>
-                <th scope="row">Access Provider</th>
-                <td>Larry</td>
-                </tr>
-                <tr>
-                <th scope="row">Asset ID</th>
-                <td>Larry</td>
-                </tr>
-                <tr>
-                <th scope="row">IP Address</th>
-                <td>Larry</td>
-                </tr>
-                <tr>
-                <th scope="row">SBWS Arrangement Date</th>
-                <td>Larry</td>
-                </tr>
-                <tr>
-                <th scope="row">City</th>
-                <td>Larry</td>
-                </tr>
-                <tr>
-                <th scope="row">Contact Number</th>
-                <td>Larry</td>
-                </tr>
-                <tr>
-                <th scope="row">Alternate Contact Number</th>
-                <td>Larry</td>
-                </tr>
-                <tr>
-                <th scope="row">Current Address</th>
-                <td>Larry</td>
-                </tr>
-                <tr>
-                <th scope="row">Permanent Address</th>
-                <td>Larry</td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
-        <div class="row" id="collapseExample3">
-            <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
-                <input type="file" name="uploaddata" />
-                <input type="submit"/>
-            </form>
-        </div>
-        <div class="row" id="collapseExample4">
-            <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
-                <input type="submit" class="btn btn-success" name="downloaddata" value="download" />
-            </form>
-        </div>
-        <div class="row" id="collapseExample5">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-                    <input type="submit" name="logout" value="logout"/>
+            
+            <div class="col-md-9" id="collapseExample2" style="margin-bottom:15%">
+                <table  class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                    <th scope="row">Employee Role</th>
+                    <td>WWWWWWWWW</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">Employee Won</th>
+                    <td>Mark</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Manager</th>
+                    <td>Jacob</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Access Provider</th>
+                    <td>Larry</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Asset ID</th>
+                    <td>Larry</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">IP Address</th>
+                    <td>Larry</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">SBWS Arrangement Date</th>
+                    <td>Larry</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">City</th>
+                    <td>Larry</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Contact Number</th>
+                    <td>Larry</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Alternate Contact Number</th>
+                    <td>Larry</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Current Address</th>
+                    <td>Larry</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Permanent Address</th>
+                    <td>Larry</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            <div class="col-md-9" id="collapseExample3" style="margin-bottom:15%;;margin-top:10%">
+                <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
+                    <div class="form row m-5">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Update Employee List</label>
+                                
+                            </div>        
+                        </div>
+                        <div class="form row m-5 ">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Delete Employee List</label>
+                                
+                            </div>        
+                        </div>
+                        <div class="form row m-5 ">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Add Employee List</label>
+                                
+                            </div>        
+                        </div>
                 </form>
-         </div>
+            </div>
+            <div class="col-md-9" id="collapseExample4" style="margin-bottom:15%">
+                <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
+                    <input type="submit" class="btn btn-success" name="downloaddata" value="download" />
+                </form>
+            </div>
+        </div>    
     </div>
 </body>
 <script>
@@ -202,8 +222,8 @@ $(document).ready(function(){
     $(".form-btn").click(function(){
         $("#collapseExample").collapse('show');
         $("#collapseExample2").collapse('hide');
-        $("#collapseExample2").collapse('hide');
-        $("#collapseExample2").collapse('hide');
+        $("#collapseExample3").collapse('hide');
+        $("#collapseExample4").collapse('hide');
     });
     $(".view-btn").click(function(){
         $("#collapseExample2").collapse('show');

@@ -40,19 +40,23 @@
         <div class="page-header bg-success">
             <h1 class="text-white text-center p-2" id="emp_name"> <?php echo $_SESSION['emp_name']; ?></h1>      
           </div>
-        <div class="row">
-            
-            <input type="button" class="btn btn-success show-btn" value="Form Fill">
-            <input type="button" class="btn btn-success hide-btn" value="View" aria-expanded="false">
+        <div class="row offset-md-3">
+            <div class="d-flex p-3 bg-white text-white">
+                <input type="button" class="btn btn-outline-success show-btn mx-3 p-3" value="Form Fill">
+                <input type="button" class="btn btn-outline-success hide-btn mx-3 p-3" value="View" aria-expanded="false">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                        <input  class="btn-outline-success mx-3 p-3" type="submit" name="logout" value="logout"/>
+                </form>
+            </div>
         </div>
-        <div class="row" id="collapseExample">
+        <div class="row">
 
             <div class="col-md-3" style="margin-top:15%">
                 
                 <img class="img-fluid" src="/AssetInfo/images/signup-image.jpg" alt="Signin"> 
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-9" style="margin-bottom:15%" id="collapseExample"> 
                 <form action="businesslogic.php" class="form" role="form" autocomplete="off" id="Formfill" novalidate="" method="POST">
                     <span class="anchor" id="formComplex"></span>
                     <hr class="my-5">
@@ -120,72 +124,66 @@
                     </div>
                 </form>
             </div>
-        </div>
-        <div class="row" id="collapseExample2">
-                <table class="table">
-                <thead>
-                    <tr>
-                    <th scope="row">Employee Role</th>
-                    <td>WWWWWWWWW</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <th scope="row">Employee Won</th>
-                    <td>Mark</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Manager</th>
-                    <td>Jacob</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Access Provider</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Asset ID</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">IP Address</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">SBWS Arrangement Date</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">City</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Contact Number</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Alternate Contact Number</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Current Address</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Permanent Address</th>
-                    <td>Larry</td>
-                    </tr>
-                </tbody>
+            <div class="col-md-9" style="margin-bottom:15%"  id="collapseExample2">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                        <th scope="row">Employee Role</th>
+                        <td>WWWWWWWWW</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">Employee Won</th>
+                        <td>Mark</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Manager</th>
+                        <td>Jacob</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Access Provider</th>
+                        <td>Larry</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Asset ID</th>
+                        <td>Larry</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">IP Address</th>
+                        <td>Larry</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">SBWS Arrangement Date</th>
+                        <td>Larry</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">City</th>
+                        <td>Larry</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Contact Number</th>
+                        <td>Larry</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Alternate Contact Number</th>
+                        <td>Larry</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Current Address</th>
+                        <td>Larry</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Permanent Address</th>
+                        <td>Larry</td>
+                        </tr>
+                    </tbody>
                 </table>
+            </div>
         </div>
-
-        <div class="row" id="collapseExample3">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-                    <input type="submit" name="logout" value="logout"/>
-                </form>
-         </div>
+    </div>
 </body>
 <script>
-
 
 
 $(document).ready(function(){
@@ -196,6 +194,7 @@ $(document).ready(function(){
         $("#collapseExample2").collapse('hide');
     });
     $(".hide-btn").click(function(){
+        alert("hide button");
         $("#collapseExample2").collapse('show');
         $("#collapseExample").collapse('hide');
     });
