@@ -275,6 +275,20 @@
                 }
                 else
                 {
+                    if ($emp_role=="Manager")
+                    {               
+                        header('location: manager.php');
+                    }
+                    else if ($emp_role=="Developer")
+                    {
+                        
+                        header('location: teammember.php');
+                    }
+                    else
+                    {
+                        header('location: supervisor.php');
+
+                    }
                 }
 
             }

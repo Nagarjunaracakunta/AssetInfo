@@ -1,5 +1,6 @@
 <?php
-session_start();
+    session_start();
+    include('dbconfig.php');
     if (!isset($_SESSION['success'])) 
     {
 		$_SESSION['msg'] = "You must log in first";
@@ -36,7 +37,7 @@ session_start();
 <body>
     <div class="container">
         <div class="page-header bg-success">
-            <h1 class="text-white text-center p-2"><?php echo $_SESSION['emp_name']; ?></h1>      
+            <h2 class="text-white text-center p-3"><?php echo $_SESSION['emp_name']; ?></h2>      
           </div>
         <div class="row offset-md-3">
             <div class="d-flex p-3 bg-white text-white">
@@ -125,92 +126,116 @@ session_start();
                 </form>
             </div>
         
-            <div  class="col-md-9" style="margin-bottom:15%" id="collapseExample2">
-                <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                    <th scope="row">Employee Role</th>
-                    <td>WWWWWWWWW</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <th scope="row">Employee Won</th>
-                    <td>Mark</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Manager</th>
-                    <td>Jacob</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Access Provider</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Asset ID</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">IP Address</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">SBWS Arrangement Date</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">City</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Contact Number</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Alternate Contact Number</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Current Address</th>
-                    <td>Larry</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Permanent Address</th>
-                    <td>Larry</td>
-                    </tr>
-                </tbody>
+            <div class="col-md-9" style="margin-bottom:15%;margin-top:6%"  id="collapseExample2">
+                <?php 
+                    $name=$_SESSION['emp_name'];
+                    $sql = "select * from Employee_Info where emp_name='$name'";
+                    $results = mysqli_query($db, $sql);
+                    $result = mysqli_fetch_array($results);
+                
+                ?>
+                <table class="table table-striped table-bordered table-sm">
+                    <thead>
+                        <tr>
+                        <th scope="row">Employee Role</th>
+                        <td><?php echo $result['emp_role']; ?></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">Employee Won</th>
+                        <td><?php echo $result['emp_won']; ?></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Manager</th>
+                        <td><?php echo $result['emp_manager']; ?></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Access Provider</th>
+                        <td><?php echo $result['asset_type']; ?></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Asset ID</th>
+                        <td><?php echo $result['asset_id']; ?></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">IP Address</th>
+                        <td><?php echo $result['ip_address']; ?></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">SBWS Arrangement Date</th>
+                        <td><?php echo $result['sbws_date']; ?></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Residing City</th>
+                        <td><?php echo $result['residing_city']; ?></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Contact Number</th>
+                        <td><?php echo $result['mobile_number']; ?></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Alternate Contact Number</th>
+                        <td><?php echo $result['alt_mobile_number']; ?></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Current Address</th>
+                        <td><?php echo $result['current_address']; ?></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Permanent Address</th>
+                        <td><?php echo $result['permanent_address']; ?></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
             <div  class="col-md-9" style="margin-bottom:15%;margin-top:10%"  id="collapseExample3">
-                <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
-                    <div class="form row m-5">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Update Employee List</label>
-                                
-                            </div>        
-                        </div>
-                        <div class="form row m-5 ">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Delete Employee List</label>
-                                
-                            </div>        
-                        </div>
-                        <div class="form row m-5 ">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Add Employee List</label>
-                                
-                            </div>        
-                        </div>
-                </form>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-success">Download Sample file </h4>
+                        <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
+                            <input type="submit" class="btn btn-success" name="downloaddata" value="download" />
+                        </form>
+                    </div>
+                
+                    <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
+                        <div class="form row m-5">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Update Employee List</label>
+                                    
+                                </div>        
+                            </div>
+                            <div class="form row m-5 ">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Delete Employee List</label>
+                                    
+                                </div>        
+                            </div>
+                            <div class="form row m-5 ">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Add Employee List</label>
+                                    
+                                </div>        
+                            </div>
+                    </form>
+                </div>
             </div>
-            <div  class="col-md-9" style="margin-bottom:15%" id="collapseExample4">
-                <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
-                        <input type="submit" class="btn btn-success" name="downloaddata" value="download" />
-                </form>
+            <div  class="col-md-9" style="margin-bottom:15%;margin-top:15%" id="collapseExample4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-success">Download Employeess Data</h4>
+                        <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
+                            <input type="submit" class="btn btn-success" name="downloaddata" value="download" />
+                        </form>
+                   </div>
+                 </div>
             </div>
+        </div>
+        <div class="page-header bg-success">
+            <h2 class="text-white text-center p-3"></h2>      
         </div>
     </div>
 </body>
@@ -219,11 +244,16 @@ session_start();
 
 
 $(document).ready(function(){
+
+        $("#collapseExample").collapse('show');
+        $("#collapseExample2").collapse('hide');
+        $("#collapseExample3").collapse('hide');
+        $("#collapseExample4").collapse('hide');
     $(".form-btn").click(function(){
         $("#collapseExample").collapse('show');
         $("#collapseExample2").collapse('hide');
-        $("#collapseExample2").collapse('hide');
-        $("#collapseExample2").collapse('hide');
+        $("#collapseExample4").collapse('hide');
+        $("#collapseExample3").collapse('hide');
     });
     $(".view-btn").click(function(){
         $("#collapseExample2").collapse('show');

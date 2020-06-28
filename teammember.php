@@ -1,5 +1,5 @@
 <?php
-
+    include('dbconfig.php');
     session_start();
     if (!isset($_SESSION['success'])) 
     {
@@ -11,8 +11,10 @@
 		session_destroy();
 		unset($_SESSION['emp_name']);
 		header("location: login.php");
-	}
+    }
+    
  ?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +40,7 @@
 <body>
     <div class="container">
         <div class="page-header bg-success">
-            <h1 class="text-white text-center p-2" id="emp_name"> <?php echo $_SESSION['emp_name']; ?></h1>      
+            <h2 class="text-white text-center p-3"><?php echo $_SESSION['emp_name']; ?></h2>       
           </div>
         <div class="row offset-md-3">
             <div class="d-flex p-3 bg-white text-white">
@@ -124,77 +126,89 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-9" style="margin-bottom:15%"  id="collapseExample2">
-                <table class="table table-striped table-bordered">
+            <div class="col-md-9" style="margin-bottom:15%;margin-top:6%"  id="collapseExample2">
+                <?php 
+                    $name=$_SESSION['emp_name'];
+                    $sql = "select * from Employee_Info where emp_name='$name'";
+                    $results = mysqli_query($db, $sql);
+                    $result = mysqli_fetch_array($results);
+                
+                ?>
+                <table class="table table-striped table-bordered table-sm">
                     <thead>
                         <tr>
                         <th scope="row">Employee Role</th>
-                        <td>WWWWWWWWW</td>
+                        <td><?php echo $result['emp_role']; ?></td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                         <th scope="row">Employee Won</th>
-                        <td>Mark</td>
+                        <td><?php echo $result['emp_won']; ?></td>
                         </tr>
                         <tr>
                         <th scope="row">Manager</th>
-                        <td>Jacob</td>
+                        <td><?php echo $result['emp_manager']; ?></td>
                         </tr>
                         <tr>
                         <th scope="row">Access Provider</th>
-                        <td>Larry</td>
+                        <td><?php echo $result['asset_type']; ?></td>
                         </tr>
                         <tr>
                         <th scope="row">Asset ID</th>
-                        <td>Larry</td>
+                        <td><?php echo $result['asset_id']; ?></td>
                         </tr>
                         <tr>
                         <th scope="row">IP Address</th>
-                        <td>Larry</td>
+                        <td><?php echo $result['ip_address']; ?></td>
                         </tr>
                         <tr>
                         <th scope="row">SBWS Arrangement Date</th>
-                        <td>Larry</td>
+                        <td><?php echo $result['sbws_date']; ?></td>
                         </tr>
                         <tr>
-                        <th scope="row">City</th>
-                        <td>Larry</td>
+                        <th scope="row">Residing City</th>
+                        <td><?php echo $result['residing_city']; ?></td>
                         </tr>
                         <tr>
                         <th scope="row">Contact Number</th>
-                        <td>Larry</td>
+                        <td><?php echo $result['mobile_number']; ?></td>
                         </tr>
                         <tr>
                         <th scope="row">Alternate Contact Number</th>
-                        <td>Larry</td>
+                        <td><?php echo $result['alt_mobile_number']; ?></td>
                         </tr>
                         <tr>
                         <th scope="row">Current Address</th>
-                        <td>Larry</td>
+                        <td><?php echo $result['current_address']; ?></td>
                         </tr>
                         <tr>
                         <th scope="row">Permanent Address</th>
-                        <td>Larry</td>
+                        <td><?php echo $result['permanent_address']; ?></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="page-header bg-success">
+            <h2 class="text-white text-center p-3"></h2>      
         </div>
     </div>
 </body>
 <script>
 
 
+
 $(document).ready(function(){
 
+        $("#collapseExample").collapse('show');
+        $("#collapseExample2").collapse('hide');
 
     $(".show-btn").click(function(){
         $("#collapseExample").collapse('show');
         $("#collapseExample2").collapse('hide');
     });
     $(".hide-btn").click(function(){
-        alert("hide button");
         $("#collapseExample2").collapse('show');
         $("#collapseExample").collapse('hide');
     });
