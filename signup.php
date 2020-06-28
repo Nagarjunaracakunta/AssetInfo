@@ -28,7 +28,7 @@
                 <img class="img-fluid" src="/AssetInfo/images/signin-image.jpg" alt="Signin"> 
             </div>
             <!--Second Part-->
-            <div class="col-md-6" style="margin-top:25%">
+            <div class="col-md-6" style="margin-top:17%">
                 <span class="anchor" id="formLogin"></span>
                 <!-- form card login with validation feedback -->
                 <div class="card">
@@ -36,7 +36,7 @@
                         <h3 class="mb-0 text-white">Sign up</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form" role="form" autocomplete="off" id="loginForm" novalidate="" method="POST">
+                        <form action="businesslogic.php" class="form" role="form" autocomplete="off" id="loginForm" novalidate="" method="POST">
                             <div class="form-group">
                                 <label for="employee_id">Employee Id</label>
                                 <input type="text" class="form-control" name="emp_id" id="employee_id" required="">
@@ -44,12 +44,17 @@
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" id="pwd1" required="" autocomplete="new-password">
+                                <input type="password" class="form-control" id="pwd1" name="pwd1"required="" autocomplete="new-password">
                                 <div class="invalid-feedback">Please enter a password</div>
+                            </div> 
+                            <div class="form-group">
+                                <label>Re-type Password</label>
+                                <input type="password" class="form-control" id="pwd2" name="pwd2" required="" autocomplete="new-password">
+                                <div class="invalid-feedback">Please Reenter a password</div>
                             </div> 
                             <div class="form-group row">
                                 <div class="col-lg-12">
-                                    <input type="button" class="btn btn-success float-left" value="Register">
+                                    <input type="submit" class="btn btn-success float-left" value="Register" name="register">
                                 </div>
                             </div>
                         </form>
@@ -76,5 +81,23 @@
     
     form.addClass('was-validated');
 });
+$('#emp_id').on('change',function(e){
+	  alert('hai');
+      var name=document.getElementById('emp_id').value;
+      var ajax = new XMLHttpRequest();
+      ajax.open("GET", "businesslogic.php?EmployeeId="+name, true);
+      ajax.send();
+      ajax.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              var data = JSON.parse(this.responseText);
+              console.log(data);
+              document.getElementById('emp_name').value=data[0].emp_name;
+              document.getElementById('emp_role').value=data[0].emp_role;
+              document.getElementById('manager').value=data[0].emp_manager;
+              document.getElementById('emp_won').value=data[0].emp_won;
+              
+          }
+      };
+     });
 </script>
 </html>

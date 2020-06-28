@@ -36,7 +36,7 @@
                         <h3 class="mb-0 text-white">Login</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form" role="form" autocomplete="off" id="loginForm" novalidate="" method="POST">
+                        <form action="businesslogic.php" class="form" role="form" autocomplete="off" id="loginForm" novalidate="" method="POST">
                             <div class="form-group">
                                 <label for="employee_id">Employee Id</label>
                                 <input type="text" class="form-control" name="emp_id" id="employee_id" required="">
@@ -44,13 +44,13 @@
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" id="pwd1" required="" autocomplete="new-password">
+                                <input type="password" class="form-control" name="pwd" id="pwd1" required="" autocomplete="new-password">
                                 <div class="invalid-feedback">Please enter a password</div>
                             </div> 
                             <div class="form-group row">
                                 <div class="col-lg-12">
                                     <input type="button" class="btn btn-success float-left" value="Sign Up" id="signup">
-                                    <input type="button" class="btn btn-success float-right" value="Sign In">
+                                    <input type="submit" class="btn btn-success float-right" value="Sign In" name="login_user">
                                 </div>
                             </div>
                         </form>
@@ -63,6 +63,7 @@
 
 </body>
 <script>
+   
     $("#btnLogin").click(function(event) {
     
     var form = $("#loginForm");
