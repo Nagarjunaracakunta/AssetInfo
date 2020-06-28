@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="/CSS/style.css">
+<link rel="stylesheet" href="/AssetInfo/CSS/style.css">
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -16,7 +16,6 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- Main Javascript-->
-<script src="/Javascript/script.js"></script>
     <title>Document</title>
 
 </head>
@@ -161,50 +160,10 @@
                 </table>
             </div>
         <div class="row" id="collapseExample3">
-        <!--Card-->
-                <div class="row">
-                    <div class="input-group m-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupFileAddon01">Update Employee Data</span>
-                        </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
-                        <div class="form-group rw ml-4">      
-                         <input type="button" class="btn btn-success " value="Submit" id="updatedata">        
-                        </div>
-                    </div>
-                    <div class="input-group m-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupFileAddon01">Delete Employee Data</span>
-                        </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
-
-                        <div class="form-group  ml-4">      
-                         <input type="button" class="btn btn-success " value="Submit" id="deletedata">        
-                        </div>
-                    </div>
-                    <div class="input-group m-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupFileAddon01">Add Employee Data</span>
-                        </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
-
-                        <div class="form-group  ml-4">      
-                         <input type="button" class="btn btn-success" value="Submit" id="adddata" >        
-                        </div>
-                    </div>
-                    <!--/.Card-->
+            <form action="businesslogic.php" method="POST" enctype="multipart/form-data">
+                   <input type="file" name="uploaddata" />
+                   <input type="submit"/>
+             </form>
         </div>
     </div>
 </body>
